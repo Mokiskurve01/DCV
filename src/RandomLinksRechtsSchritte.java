@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class RandomLinsRechtsSchritte {
+public class RandomLinksRechtsSchritte {
 
     private static final Random random = new Random();
 
