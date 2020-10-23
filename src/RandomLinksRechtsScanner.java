@@ -29,12 +29,12 @@ public class RandomLinksRechtsScanner {
                 Thread.sleep(20);
             } catch (InterruptedException ie) { /* Ignore */ }
         }
-        if (pos == 20) {
+        if (pos == laenge) {
             System.err.println("!!!!!GAME OVER!!!!!!");
-            System.out.println("Rechte Rand erreicht");
+            System.out.println("Rechter Rand erreicht");
         } else {
             System.err.println("!!!!!GAME OVER!!!!!");
-            System.out.println("Linke Rand erreicht");
+            System.out.println("Linker Rand erreicht");
         }
       //  System.out.println(laenge*laenge);
     }
