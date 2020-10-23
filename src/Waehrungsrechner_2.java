@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 public class Waehrungsrechner_2 {
+
+
+
+
     public static void main(String[] args) {
         double wechselkurs = 0D;
         Scanner scan = new Scanner(System.in);
@@ -10,10 +14,9 @@ public class Waehrungsrechner_2 {
                 "     \" S \"-für Schweizer Franken" +
                         "\n     \" U \"-für US-Dollar" +
                         "\n     \" B \"-für Bitcoin");
-        String waehrung = scan.nextLine();
+        String waehrung = scan.nextLine().toUpperCase();
         System.out.println("Welchen Euro Betrag möchten Sie Wechseln?");
         int betrag = scan.nextInt();
-      //  double betrag=scan.nextDouble();
         switch (waehrung) {
             case "S" -> wechselkurs = 1.07;
             case "U" -> wechselkurs = 1.19;

@@ -8,7 +8,6 @@ public class RandomLinksRechtsScanner {
         Scanner scan = new Scanner(System.in);
         System.out.println("Wie lange soll das Feld sein?");
         int laenge = Integer.MIN_VALUE;
-
         while (laenge == Integer.MIN_VALUE) {
             try {
                 String line = scan.nextLine();
@@ -18,12 +17,10 @@ public class RandomLinksRechtsScanner {
             }
         }
         System.out.println("Das Feld  ist " + laenge + " lang.");
-
         int pos = Math.round(laenge / 2.0f);
-
         printPlayfield(laenge, pos);
         while (!(pos <= 1 || pos >= laenge)) {
-            pos = stehenLinksRechts(pos);
+            pos = linksRechts(pos);
             printPlayfield(laenge, pos);
             try {
                 Thread.sleep(20);
@@ -36,10 +33,9 @@ public class RandomLinksRechtsScanner {
             System.err.println("!!!!!GAME OVER!!!!!");
             System.out.println("Linker Rand erreicht");
         }
-      //  System.out.println(laenge*laenge);
     }
 
-    private static int stehenLinksRechts(int pos) {
+    private static int linksRechts(int pos) {
         int zufallzahl = random.nextInt(100);
 
         if (zufallzahl < 30) {
