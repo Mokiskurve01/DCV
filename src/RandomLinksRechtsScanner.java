@@ -3,17 +3,21 @@ import java.util.Scanner;
 
 public class RandomLinksRechtsScanner {
     private static final Random random = new Random();
-
+    private final static String[] Rabbit = {
+              "()_()",
+              "(o.o)",
+            "'(\")(\")'"
+    };
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Wie lange soll das Feld sein?");
+        System.out.println("Wie lang soll das Feld sein?");
         int laenge = Integer.MIN_VALUE;
         while (laenge == Integer.MIN_VALUE) {
             try {
                 String line = scan.nextLine();
                 laenge = Integer.parseInt(line.trim());
             } catch (NumberFormatException nfe) {
-                System.out.println("Es ist kein Zahl. Geben Sie bitte Ihre alte ein!");
+                System.out.println("Geben Sie bitte eine Zahl für die länge des Feldes ein!");
             }
         }
         System.out.println("Das Feld  ist " + laenge + " lang.");
@@ -37,7 +41,6 @@ public class RandomLinksRechtsScanner {
 
     private static int linksRechts(int pos) {
         int zufallzahl = random.nextInt(100);
-
         if (zufallzahl < 30) {
             pos--;
         } else if (zufallzahl < 60) {
@@ -51,7 +54,9 @@ public class RandomLinksRechtsScanner {
         for (int i = 1; i < pos; i++) {
             System.out.print(".");
         }
-        System.out.print("X");
+
+
+        System.out.print( "X");
         for (int i = pos + 1; i <= laenge; i++) {
             System.out.print(".");
         }
