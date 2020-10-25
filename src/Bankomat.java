@@ -105,7 +105,7 @@ public class Bankomat {
     }
 
     private static int auszahlung3(int kontostand) {
-        System.out.println("Bitte geben Sie Auszahlungsbetrag ein.");
+        System.out.println("Bitte geben Sie ihren Auszahlungsbetrag ein.");
         Scanner scan = new Scanner(System.in);
         int auszahlung = scan.nextInt();
         if (auszahlung % 10 == 0) {
@@ -114,7 +114,7 @@ public class Bankomat {
                 System.out.println("Auszahlung war erfolgreich\n" +
                         "Neuer Kontostand lautet " + kontostand + " Euro.");
             } else {
-                System.out.println("Ihr Auszahlung ist nicht möglich.\n" +
+                System.out.println("Ihre Auszahlung ist nicht möglich.\n" +
                         " Minimum Auszahlung 10 Euro und nur Banknoten!");
             }
         }
