@@ -1,43 +1,58 @@
 import java.util.Random;
 
 /***
- * Um für das Wichteln an Weihnachten gerüstet zu sein,
- * soll ein Programm entworfen werden,
- * das aus einer Liste (Array) von Namen,
- * jedem dieser Namen einen Wichtel zuweist und auf der Konsole ausgibt.
+ * Um für das Wichteln an Weihnachten gerüstet zu sein, soll ein Programm entworfen werden,
+ * das aus einer Liste (Array) von Namen, jedem dieser Namen einen Wichtel zuweist und auf der Konsole ausgibt.
  */
 public class Wichteln {
     public static void main(String[] args) {
-        String[] namenOrg = {"Alex ", "Bernd ","Claudia ","Doris ","Ernst ","Franz "};
-        String[] namenZufall;
-        namenZufall = namenOrg;
-        istWichtelmoeglich(namenZufall);
-        namenzufallsort(namenZufall);
-        zuordnenWichtel(namenZufall);
+        String[] namen = {"Alex ", "Bernd ", "Claudia ", "Doris ", "Ernst ", "Franz "};
+        boolean pruefung = true;
+        pruefunganzahl(namen, pruefung);
+        pruefungdoppelt(namen, pruefung);
+        namenzufallsort(namen, pruefung);
+        zuordnenWichtel(namen, pruefung);
     }
 
-    private static void istWichtelmoeglich(String[] namenZufall) {
-        if (namenZufall.length < 3) {                          //Prüfung: es braucht mindestens zwei Namen
+    private static boolean pruefungdoppelt(String[] namen, boolean pruefung) {
+        for (int i = 0; i < namen.length; i++) {
+            for (int j = i+1; j < namen.length - 1; j++) {
+                if (namen[i].equals(namen[j])) {
+                    System.err.println("Das Wichteln kann nicht richtig durchgeführt werden, weil es gleiche namen gibt");
+                    pruefung = false;                               //!!!!!!!!möchte noch ein gesamt break einfügen!!!!!!!
+                }
+                break;
+            }
+        }
+        return pruefung;
+    }
+
+    private static boolean pruefunganzahl(String[] namen, boolean pruefung) {
+        if (namen.length < 3) {                          //Prüfung: es braucht mindestens drei Namen
             System.err.println("Das Wichteln kann nicht richtig durchgeführt werden, weil die Anzahl der Personen zu gering ist.");
-        }                                                      //möchte noch ein gesamt break einfügen
+            pruefung = false;                                      //!!!!!!!!möchte noch ein gesamt break einfügen!!!!!!!
+        }
+        return pruefung;
     }
 
-    private static void namenzufallsort(String[] namenZufall) {
+    private static void namenzufallsort(String[] namen, boolean pruefung) {
         Random ranWichtel = new Random();
-
-        for (int i = 0; i < namenZufall.length; i++) {
-            int tempPos = ranWichtel.nextInt(namenZufall.length); //zufall index auf tempPos
-            String temp = namenZufall[i];                         //zufall name auf temp
-            namenZufall[i] = namenZufall[tempPos];                //zufall index auf aktuelles [i]
-            namenZufall[tempPos] = temp;                          //name auf aktuelles[i]
+        if (pruefung) {
+            for (int i = 0; i < namen.length; i++) {
+                int tempPos = ranWichtel.nextInt(namen.length); //zufall index auf tempPos
+                String temp = namen[i];                         //zufall name auf temp
+                namen[i] = namen[tempPos];                      //zufall index auf aktuelles [i]
+                namen[tempPos] = temp;                          //name auf aktuelles[i]
+            }
         }
     }
 
-    private static void zuordnenWichtel(String[] namenZufall) {
-
-            for (int i = 0; i < namenZufall.length - 1; i++) {
-                System.out.println(namenZufall[i] + "ist Wichtel von " + namenZufall[i + 1]);
-            }
-            System.out.println(namenZufall[namenZufall.length - 1] + "ist Wichtel von " + namenZufall[0]);
+    private static void zuordnenWichtel(String[] namen, boolean pruefung) {
+        if (pruefung) {
+            for (int i = 0; i < namen.length - 1; i++) {
+                System.out.println(namen[i] + "ist Wichtel von " + namen[i + 1]);
+            }                   // Pos0 mit Pos1, Pos1 mit Pos2  usw.
+            System.out.println(namen[namen.length - 1] + "ist Wichtel von " + namen[0]);
+        }                           //der letzte Name wird mit dem ersten ausgewählt
     }
 }
