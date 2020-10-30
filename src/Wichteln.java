@@ -8,7 +8,7 @@ import java.util.Random;
  */
 public class Wichteln {
     public static void main(String[] args) {
-        String[] namenOrg = {"Alex ", "Bernd ","Claudia ","Doris ","Ernst ","Franz "};
+        String[] namenOrg = {"Alex ", "Bernd "};
         String[] namenZufall;
         namenZufall = namenOrg;
         istWichtelmoeglich(namenZufall);
@@ -17,9 +17,9 @@ public class Wichteln {
     }
 
     private static void istWichtelmoeglich(String[] namenZufall) {
-        if (namenZufall.length < 2) {                          //Prüfung: es braucht mindestens zwei Namen
-            System.err.println("Das Wichteln kann nicht durchgeführt werden, weil die Anzahl der Personen zu gering ist.");
-        }
+        if (namenZufall.length < 3) {                          //Prüfung: es braucht mindestens zwei Namen
+            System.err.println("Das Wichteln kann nicht richtig durchgeführt werden, weil die Anzahl der Personen zu gering ist.");
+        }                                                      //möchte noch ein gesamt break einfügen
     }
 
     private static void namenzufallsort(String[] namenZufall) {
