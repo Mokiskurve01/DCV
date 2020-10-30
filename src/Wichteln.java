@@ -8,7 +8,7 @@ import java.util.Random;
  */
 public class Wichteln {
     public static void main(String[] args) {
-        String[] namenOrg = {"Alex ", "Bernd "};
+        String[] namenOrg = {"Alex ", "Bernd ","Claudia ","Doris ","Ernst ","Franz "};
         String[] namenZufall;
         namenZufall = namenOrg;
         istWichtelmoeglich(namenZufall);
