@@ -79,7 +79,7 @@ public class BuchVerschluesselung2 {
         String[] zeilenArr = text.split("\n");                            //text in zeilen arry spliten
         for (int i = 0; i < wort.length(); i++) {
             int j = 0;
-            while (j < zeilenArr.length) {                                      //enlosschleife bis übereinstimmung
+            while (j < zeilenArr.length) {                                      //entlosschleife bis übereinstimmung
                 j = (int) (1 + (Math.random()) * zeilenArr.length - 1);         //zufall zeile ermitteln
                 String temp = zeilenArr[j];
                 for (int k = 0; k < temp.length(); k++) {
