@@ -3,7 +3,9 @@ package November;
 
 public class StundenListe5 {
     public static void main(String[] args) {
+
         String[][] stundenliste = SimpleCSVReader.readCSV("C:\\Users\\DCV\\IdeaProjects\\Stunden2.csv", ",");
+
         double stundenLohn = 8.34;
         pruefungListe(stundenliste);
         String[] mitarbeiter = anzahlNamen(stundenliste);
@@ -15,8 +17,9 @@ public class StundenListe5 {
             double summeStd = 0;
             int arbeitsTage = 0;
             for (String[] strings : stundenliste) {
-                if ((s.equals(strings[0])) && ((!(strings[1] == null)))) {
-                    summeStd += Integer.parseInt(strings[1]);
+                if (s.equals(strings[0]) && strings[1] != null) {
+                    summeStd += Double.parseDouble(strings[1]);
+                    arbeitsTage++;
                 }
             }
             print(stundenLohn, s, summeStd, arbeitsTage);
@@ -42,7 +45,7 @@ public class StundenListe5 {
 
     private static void pruefungListe(String[][] stundenLieste) {
         for (int i = 0; i < stundenLieste.length; i++) {
-            if (!stundenLieste[i][1].matches("[0-9]")) {
+            if (!stundenLieste[i][1].matches("\\d+(\\.\\d+)?")) {
                 System.err.println("In Zeile " + i + " (" + stundenLieste[i][0] + stundenLieste[i][1] + ") ist nicht korrekt!");
                 stundenLieste[i][1] = null;
             }
