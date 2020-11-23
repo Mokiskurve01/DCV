@@ -54,17 +54,19 @@ public class ChessKnightA1H8 {
         String[][] schachbrett = new String[8][8];
         int[] zahlen = {1, 2, 3, 4, 5, 6, 7, 8};
         String[] buchstaben = {" ", " A", " B", " C", " D", " E", " F", " G", " H",};
-        for (
-                int i = 0;
-                i <= schachbrett.length; i++) {
+        for (int i = 0; i <= schachbrett.length; i++) {
             System.out.print(buchstaben[i]);
         }
         System.out.println();
         for (int i = 0; i < schachbrett.length; i++) {
             System.out.print(zahlen[schachbrett.length - 1 - i]);
             for (int j = 0; j < schachbrett.length; j++) {
-                if ((j == knightPos[0]) && (i == knightPos[1])) System.out.print(" K");
-                else System.out.print(" _");
+                if ((j == knightPos[0]) && (i == knightPos[1])) {
+                    System.out.print(" K");
+                }
+                else {
+                    System.out.print(" _");
+                }
             }
             System.out.println();
         }
