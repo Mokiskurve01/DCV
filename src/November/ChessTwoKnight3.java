@@ -48,7 +48,7 @@ public class ChessTwoKnight3 {
         chessboard[knightWPos[0]][knightWPos[1]] = knightW;
         chessboard[knightBPos[0]][knightBPos[1]] = knightB;
         printChessboard(chessboard);
-        boolean white = true;//weiß beginnt
+        boolean white = false;//weiß beginnt
         boolean beat = false;//prüfung ob ein pferd geschlageb wird
         while (!beat) {
             Random randomPos = new Random();//zufall wird ermittelt
@@ -92,12 +92,13 @@ public class ChessTwoKnight3 {
         }
         if (!white) {
             System.out.println("Weiß schlägt schwarz!");
-        } else System.out.println("Schwarz schlägt Weiß!");
+        } else
+            System.out.println("Schwarz schlägt Weiß!");
     }
 
     private static boolean isHit(int[] knightWPos, int[] knightSPos) {
-        //  return knightWPos[0] == knightSPos[0] && knightWPos[1] == knightSPos[1];
-        return knightSPos[0] == knightWPos[0] && knightSPos[1] == knightWPos[1];
+          return knightWPos[0] == knightSPos[0] && knightWPos[1] == knightSPos[1];
+        //return knightSPos[0] == knightWPos[0] && knightSPos[1] == knightWPos[1];
 
     }
 
